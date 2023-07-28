@@ -63,6 +63,7 @@ func main(){
 			}
 		}
 	//切片:可变长度
+	//存储长度、容量、指向数组的指针
 		//创建切片make
 		s := make([]string,3) 
 		fmt.Println("get:",s[2])
