@@ -63,12 +63,50 @@ func main(){
 			}
 		}
 	//切片:可变长度
-	//存储长度、容量、指向数组的指针
+		//存储长度、容量、指向数组的指针
 		//创建切片make
 		s := make([]string,3) 
+		//用copy在两个slice之间拷贝数据
+		
 		fmt.Println("get:",s[2])
 		//追加元素append
 		s = append(s,"d")
 		fmt.Println(s)	
+		c := make([]string,len(s))
+		copy(c,s)
+		fmt.Println(c)	
+		//取出2-5个元素，但不包括第五个元素
+		fmt.Println(s[2:5])
+	//map:完全无序
+		m := make(map[string]int) //string为key的类型，int为value的类型
+		m["one"]=1
+		m["two"]=2
+		fmt.Println(m)
+		fmt.Println(m["one"])
+
+		r,ok:= m["unkown"] //用于获取map中是否有此key的存在
+		fmt.Println(r,ok)
+		delete(m,"one")
+	//range:快速遍历slice和map,会返回索引和对应位置的值
+		//遍历slice
+		nums:=[]int{2,3,4}
+		sum:=0
+		for i,num:=range nums{
+			sum += num
+			if num == 2{
+				fmt.Println("index",i,"num:",num)
+			}
+		}
+		fmt.Println(sum)
+		//遍历map
+
+	//函数
+		//变量类型后置
+		func add(a int, b int) int{
+			return a+b
+		}
+		res:=add(1,2)
+		fmt.Println(res)
+
 
 }
